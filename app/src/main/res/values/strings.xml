@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">YouTubeDemo</string>
+    <string name="oauth_user_refused_message">Looks like you refused our application to help you upload videos onto YouTube.</string>
+</resources>
