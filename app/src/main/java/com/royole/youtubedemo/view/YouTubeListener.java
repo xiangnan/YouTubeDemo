@@ -10,7 +10,9 @@ package com.royole.youtubedemo.view;
 public interface YouTubeListener {
     void loadYouTubeVideo();
 
-    void playPauseYouTubeVideo();
+    void playYouTubeVideo();
+
+    void pauseYouTubeVideo();
 
     void volumeUp();
 

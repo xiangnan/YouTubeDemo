@@ -3,6 +3,8 @@ package com.royole.youtubedemo.ui;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -25,14 +27,18 @@ public class YouTubePlayActivity extends BaseActivity {
 
     @Override
     protected void initValues() {
-        mVid = getIntent().getStringExtra("vid");
+        //mVid = getIntent().getStringExtra("vid");
+        mVid = "hDoAxehFvn8";
     }
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //设置标题栏样式
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //全屏
+
         setContentView(R.layout.acitivity_youtube_play);
         mWebView = (YouTubeWebView) findViewById(R.id.wv_player);
-        mWebView.setVid(mVid);
+        mWebView.loadVideo(mVid);
     }
 
     @Override
