@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- page title -->
+    <title>YouTube Player</title>
+    <!-- This code loads the iFrame Player API code asynchronously.-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script language="JavaScript" type="text/javascript"
+            src="file:///android_asset/all_in_one.js"></script>
+    <link rel="stylesheet" type="text/css" href="file:///android_asset/theme.css">
+</head>
+<body>
+<!-- The iframe video player will replace this <div> tag. -->
+<div id="player" class="full-size"></div>
+</body>
+<script type="text/javascript">
+// Callback for when the YouTube iFrame player is ready
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    // Set Player height and width
+    height: '100%',
+    width: '100%',
+    // Set the id of the video to be played
+    //videoId: 'M7lc1UVf-VE',
+    videoId: '[VIDEO_ID]',
+    playerVars: {
+      'playsinline': '0',
+      'fs': '1',
+    },
+    // Setup event handelers
+    events: {
+      'onReady': onPlayerReady,
+      'onError': onError,
+      'onApiChange': onApiChange,
+    }
+  });
+};
+
+</script>
+</html>

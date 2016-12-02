@@ -1,23 +1,4 @@
 var player;
-var isPlaying;
-// Callback for when the YouTube iFrame player is ready
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    // Set Player height and width
-    height: '100%',
-    width: '100%',
-    // Set the id of the video to be played
-    //videoId: 'M7lc1UVf-VE',
-    videoId: '[VIDEO_ID]',
-    // Setup event handelers
-    events: {
-      'onReady': onPlayerReady,
-      'onError': onError,
-      'onApiChange': onApiChange,
-    }
-  });
-};
-
 // Event Handlers 
 function onError(error){
   // Update errors on page
@@ -29,8 +10,6 @@ function onApiChange(event){
 };
 function onPlayerReady(){
   // Update page after player is ready
-  playVideo();
-  isPlaying = true;
 }
 
 // Functions to invoke user requested action through the iFrame API
@@ -40,15 +19,6 @@ function loadNewVideo(vid){
 };
 function cueNewVideo(vid){
   player.cueVideoById(vid);
-};
-function playPauseVideo(){
-  console.log('isplaying:',isPlaying);
-    if (isPlaying) {
-      pauseVideo();
-    }else{
-      playVideo();
-    }
-    isPlaying = !isPlaying;
 };
 function playVideo(){
   player.playVideo();
